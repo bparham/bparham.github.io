@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kenect Prizes</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- Bootstrap Icons -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+      color: #343a40;
+    }
+    /* NAV BAR */
+    .navbar {
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .navbar-nav .nav-link.active {
+      font-weight: 700;
+      color: #7c3aed !important;
+      position: relative;
+    }
+    .navbar-nav .nav-link.active::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: #7c3aed;
+      border-radius: 2px;
+    }
+
+    /* HERO */
+    .hero {
+      background-color: #e9ecef;
+      padding: 30px 1rem;
+      text-align: center;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    /* XP + Filters row */
+    .stats-filters {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .stats-filters .filters > * {
+      margin-left: 0.5rem;
+    }
+
+    /* XP display */
+    .current-xp {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    /* Prize grid */
+    .prize-grid .prize-card {
+      background-color: #fff;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.2s, filter 0.2s;
+    }
+    .prize-grid .prize-card:hover {
+      transform: scale(1.03);
+    }
+    /* blur whole card when unaffordable */
+    .prize-card.unaffordable {
+      filter: blur(1px);
+    }
+
+    .prize-grid .ratio {
+      border-radius: 0.25rem;
+      background-color: #f0f0f0;
+      overflow: hidden;
+    }
+    .prize-title {
+      margin-top: 0.5rem;
+      font-weight: 600;
+      min-height: 2.4rem;
+    }
+    /* XP cost coloring */
+    .prize-xp.affordable {
+      color: #28a745;
+    }
+    .prize-xp.unaffordable {
+      color: #dc3545;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="https://docksexpo.com/wp-content/uploads/Kenect.jpg" height="40" alt="Kenect">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navMenu">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="tournaments.html">Tournaments</a></li>
+          <li class="nav-item"><a class="nav-link" href="challenges.html">Challenges</a></li>
+          <li class="nav-item"><a class="nav-link" href="leaderboards.html">Leaderboards</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Prizes</a></li>
+        </ul>
+      </div>
+      <div class="d-flex">
+        <button class="btn btn-outline-secondary">
+          Sign in <i class="bi bi-person-circle"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>Prizes</h1>
+    </div>
+  </section>
+
+  <main class="container py-4">
+    <!-- XP and Filters -->
+    <div class="stats-filters">
+      <div class="current-xp">
+        Your XP: <span id="current-xp">8,250</span> XP
+      </div>
+      <div class="filters d-flex">
+        <select id="xpFilter" class="form-select form-select-sm w-auto">
+          <option value="desc">XP Cost: High → Low</option>
+          <option value="asc">XP Cost: Low → High</option>
+        </select>
+        <button class="btn btn-sm btn-outline-secondary">Recently Added</button>
+        <button class="btn btn-sm btn-outline-secondary">Favorites</button>
+      </div>
+    </div>
+
+    <!-- 4-per-row prize grid -->
+    <div class="row row-cols-2 row-cols-md-4 g-4 prize-grid">
+      <!-- Prize 1 -->
+      <div class="col">
+        <div class="prize-card h-100" data-cost="3500">
+          <div class="ratio ratio-1x1">
+            <img src="https://m.media-amazon.com/images/I/81b-A06eoFL.jpg" class="img-fluid" alt="Amazon $5 GC">
+          </div>
+          <div class="prize-title">$5 Amazon Gift Card</div>
+          <div class="prize-xp">3,500 XP</div>
+        </div>
+      </div>
+      <!-- Prize 2 -->
+      <div class="col">
+        <div class="prize-card h-100" data-cost="3500">
+          <div class="ratio ratio-1x1">
+            <img src="https://mms-images.out.customink.com/mms/images/catalog/23f4afdd988265e06c62203f62dec7a0/colors/4166/views/alt/front_large.png" class="img-fluid" alt="Kenect T-Shirt">
+          </div>
+          <div class="prize-title">Kenect T-Shirt</div>
+          <div class="prize-xp">3,500 XP</div>
+        </div>
+      </div>
+      <!-- Prize 3 -->
+      <div class="col">
+        <div class="prize-card h-100" data-cost="6000">
+          <div class="ratio ratio-1x1">
+            <img src="https://cdn.4imprint.com/prod/300/371910.jpg" class="img-fluid" alt="Computer Mousepad">
+          </div>
+          <div class="prize-title">Computer Mousepad</div>
+          <div class="prize-xp">6,000 XP</div>
+        </div>
+      </div>
+      <!-- Prize 4 -->
+      <div class="col">
+        <div class="prize-card h-100" data-cost="10500">
+          <div class="ratio ratio-1x1">
+            <img src="https://i5.walmartimages.com/asr/814d9437-3f8f-4d24-a066-f5504785e272.9de7e705f7d897bb2778365032e277d6.jpeg" class="img-fluid" alt="TopGolf Gift Card">
+          </div>
+          <div class="prize-title">TopGolf Gift Card</div>
+          <div class="prize-xp">10,500 XP</div>
+        </div>
+      </div>
+      <!-- Prize 5 -->
+      <div class="col">
+        <div class="prize-card h-100" data-cost="21000">
+          <div class="ratio ratio-1x1">
+            <img src="https://www.kroger.com/product/images/large/front/0000000821631" class="img-fluid" alt="Chick-fil-A Gift Card">
+          </div>
+          <div class="prize-title">Chick-fil-A Gift Card</div>
+          <div class="prize-xp">21,000 XP</div>
+        </div>
+      </div>
+      <!-- Prize 6 -->
+      <div class="col">
+        <div class="prize-card h-100" data-cost="46500">
+          <div class="ratio ratio-1x1">
+            <img src="https://m.media-amazon.com/images/I/61gJVVtqynL.jpg" class="img-fluid" alt="Swig Refillable Mug">
+          </div>
+          <div class="prize-title">Swig Refillable Mug</div>
+          <div class="prize-xp">46,500 XP</div>
+        </div>
+      </div>
+      <!-- Prize 7 -->
+      <div class="col">
+        <div class="prize-card h-100" data-cost="3500">
+          <div class="ratio ratio-1x1">
+            <img src="https://static.customhatsnow.com/fit-in/500x500/product_20250219-a667fcf0-ef17-11ef-804a-f977a4f48ec3.png" class="img-fluid" alt="Kenect Hat">
+          </div>
+          <div class="prize-title">Kenect Hat</div>
+          <div class="prize-xp">3,500 XP</div>
+        </div>
+      </div>
+      <!-- Prize 8 -->
+      <div class="col">
+        <div class="prize-card h-100" data-cost="15000">
+          <div class="ratio ratio-1x1">
+            <img src="https://target.scene7.com/is/image/Target/GUEST_4544004a-4240-4f0a-ad81-78009d921c82?wid=800&hei=800&qlt=80&fmt=pjpeg" class="img-fluid" alt="Pokémon Cards">
+          </div>
+          <div class="prize-title">1 Pack Pokémon Cards</div>
+          <div class="prize-xp">15,000 XP</div>
+        </div>
+      </div>
+      <!-- Prize 9 -->
+      <div class="col">
+        <div class="prize-card h-100" data-cost="13000">
+          <div class="ratio ratio-1x1">
+            <img src="https://i5.walmartimages.com/seo/Frigidaire-Mini-Personal-Fridge-Red-7-09-x9-84-x10-5_25021d01-150d-421d-a60b-edcfc5f1df8b_1.9740a1de24e39fe6c72ef92af82dbf7d.jpeg" class="img-fluid" alt="Mini Fridge">
+          </div>
+          <div class="prize-title">Mini Fridge</div>
+          <div class="prize-xp">13,000 XP</div>
+        </div>
+      </div>
+      <!-- Prize 10 -->
+      <div class="col">
+        <div class="prize-card h-100" data-cost="14000">
+          <div class="ratio ratio-1x1">
+            <img src="https://images.ctfassets.net/4cd45et68cgf/5ZVnTR7jyrRs0lePAlVT71/0a7c103de12f7a4c0b6c3b6edd535298/Ads_Plan_Blog_Header_Image.png?w=2000" class="img-fluid" alt="Netflix Subscription">
+          </div>
+          <div class="prize-title">3-Month Netflix Subscription</div>
+          <div class="prize-xp">14,000 XP</div>
+        </div>
+      </div>
+      <!-- Prize 11 -->
+      <div class="col">
+        <div class="prize-card h-100" data-cost="23000">
+          <div class="ratio ratio-1x1">  
+            <img src="https://target.scene7.com/is/image/Target/GUEST_abb23628-3a6d-4c04-9aed-3c20f2394c82?wid=800&hei=800&qlt=80&fmt=pjpeg" class="img-fluid" alt="Large Candy">
+          </div>
+          <div class="prize-title">Large Candy</div>
+          <div class="prize-xp">23,000 XP</div>
+        </div>
+      </div>
+      <!-- Prize 12 -->
+      <div class="col">
+        <div class="prize-card h-100" data-cost="11000">
+          <div class="ratio ratio-1x1">
+            <img src="https://www.kroger.com/product/images/xlarge/front/0007800008216" class="img-fluid" alt="Dr Pepper Pack">
+          </div>
+          <div class="prize-title">12-Pack Dr. Pepper</div>
+          <div class="prize-xp">11,000 XP</div>
+        </div>
+      </div>
+      <!-- Prize 13 -->
+      <div class="col">
+        <div class="prize-card h-100" data-cost="10500">
+          <div class="ratio ratio-1x1">
+            <img src="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1200,height=672,format=auto/https://doordash-static.s3.amazonaws.com/media/photosV2/49458376-79e0-418b-b518-fc70deb68246-retina-large.jpg" class="img-fluid" alt="Disneyland Ticket">
+          </div>
+          <div class="prize-title">1-Day Disneyland Ticket</div>
+          <div class="prize-xp">10,500 XP</div>
+        </div>
+      </div>
+      <!-- Prize 14 -->
+      <div class="col">
+        <div class="prize-card h-100" data-cost="2000">
+          <div class="ratio ratio-1x1">
+            <img src="https://news.blr.com/app/uploads/sites/3/2019/01/PTO-5.jpg" class="img-fluid" alt="PTO">
+          </div>
+          <div class="prize-title">1 Day PTO</div>
+          <div class="prize-xp">2,000 XP</div>
+        </div>
+      </div>
+      <!-- Prize 15 -->
+      <div class="col">
+        <div class="prize-card h-100" data-cost="5000">
+          <div class="ratio ratio-1x1">
+            <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6584/6584888_rd.jpg;maxHeight=1920;maxWidth=900?format=webp" class="img-fluid" alt="Keyboard">
+          </div>
+          <div class="prize-title">Computer Keyboard</div>
+          <div class="prize-xp">5,000 XP</div>
+        </div>
+      </div>
+      <!-- Prize 16 -->
+      <div class="col">
+        <div class="prize-card h-100" data-cost="5000">
+          <div class="ratio ratio-1x1">
+            <img src="https://mms-images.out.customink.com/mms/images/catalog/122cab2253413a8fe0c76da37bd5e057/colors/371500/views/alt/front_large.png" class="img-fluid" alt="Custom Socks">
+          </div>
+          <div class="prize-title">Custom Socks</div>
+          <div class="prize-xp">5,000 XP</div>
+        </div>
+      </div>
+      <!-- Prize 17 -->
+      <div class="col">
+        <div class="prize-card h-100" data-cost="5000">
+          <div class="ratio ratio-1x1">
+            <img src="https://mms-images.out.customink.com/mms/images/catalog/b33706be340d0d4b6cc4a8a99bdf851e/styles/125700/catalog_detail_image_large.jpg" class="img-fluid" alt="Disc Golf">
+          </div>
+          <div class="prize-title">Custom Disc Golf</div>
+          <div class="prize-xp">5,000 XP</div>
+        </div>
+      </div>
+      <!-- Prize 18 -->
+      <div class="col">
+        <div class="prize-card h-100" data-cost="5000">
+          <div class="ratio ratio-1x1">
+            <img src="https://product-images.promotionpros.com/cloud-images-6/LGB-GM23/cv-details-size/638730310631830404.webp" class="img-fluid" alt="Stress Toy">
+          </div>
+          <div class="prize-title">Stress Toy</div>
+          <div class="prize-xp">5,000 XP</div>
+        </div>
+      </div>
+      <!-- Prize 19 -->
+      <div class="col">
+        <div class="prize-card h-100" data-cost="5000">
+          <div class="ratio ratio-1x1">
+            <img src="https://m.media-amazon.com/images/I/31wWKyUY2UL._SY445_SX342_QL70_FMwebp_.jpg" class="img-fluid" alt="Uber GC">
+          </div>
+          <div class="prize-title">Uber Gift Card</div>
+          <div class="prize-xp">5,000 XP</div>
+        </div>
+      </div>
+      <!-- Prize 20 -->
+      <div class="col">
+        <div class="prize-card h-100" data-cost="5000">
+          <div class="ratio ratio-1x1">
+            <img src="https://m.media-amazon.com/images/I/31VmAlVK-wL._SY445_SX342_QL70_FMwebp_.jpg" class="img-fluid" alt="DoorDash GC">
+          </div>
+          <div class="prize-title">DoorDash Gift Card</div>
+          <div class="prize-xp">5,000 XP</div>
+        </div>
+      </div>
+      <!-- Prize 21 -->
+      <div class="col">
+        <div class="prize-card h-100" data-cost="5000">
+          <div class="ratio ratio-1x1">
+            <img src="https://frigofoods.com/wp-content/uploads/2021/04/Old-World-Italian.jpg" class="img-fluid" alt="Gift Basket">
+          </div>
+          <div class="prize-title">Gift Basket</div>
+          <div class="prize-xp">5,000 XP</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  ></script>
+
+  <!-- Affordability script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const current = parseInt(
+        document.getElementById("current-xp").textContent.replace(/,/g, ""),
+        10
+      );
+      document.querySelectorAll(".prize-card").forEach(card => {
+        const cost = parseInt(card.dataset.cost, 10) || 0;
+        if (cost <= current) {
+          card.classList.add("affordable");
+          card.querySelector(".prize-xp").classList.add("affordable");
+        } else {
+          card.classList.add("unaffordable");
+          card.querySelector(".prize-xp").classList.add("unaffordable");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

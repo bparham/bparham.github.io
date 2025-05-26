@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kenect Tournaments</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Bootstrap Icons -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+      color: #343a40;
+    }
+
+    /* NAV BAR */
+    .navbar {
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+/* Highlight the “current” nav link */
+.navbar-nav .nav-link.active {
+  font-weight: 700;
+  color: #7c3aed !important;
+  position: relative;
+}
+.navbar-nav .nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #7c3aed;
+  border-radius: 2px;
+}
+
+
+    /* HERO (Current Tournament) */
+    .hero {
+      background-color: #e9ecef;
+      padding: 30px 1rem;
+      text-align: center;
+    }
+    .hero .card {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    /* CARD HEADER */
+    .card-header {
+      background-color: #cfe2ff;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    /* HOVER EFFECT on all cards */
+    .card {
+      transition: transform 0.2s ease-in-out;
+    }
+    .card:hover {
+      transform: scale(1.03);
+      z-index: 1;
+    }
+
+    .btn-join {
+      width: 100%;
+    }
+    .countdown {
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV BAR -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="https://docksexpo.com/wp-content/uploads/Kenect.jpg" alt="Kenect" height="40" />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navMenu"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navMenu">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Tournaments</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Challenges</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Leaderboards</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Prizes</a></li>
+        </ul>
+      </div>
+      <div class="d-flex">
+        <button class="btn btn-outline-secondary">
+          Sign in <i class="bi bi-person-circle"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO: Current Tournament -->
+  <section class="hero">
+    <div class="container">
+      <div class="card shadow-sm h-100">
+        <div class="card-header">Current Tournament</div>
+        <div class="card-body text-center">
+          <h5 class="card-title">Kenect Trivia</h5>
+          <img
+            src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1500w,f_auto,q_auto:best/rockcms/2025-03/fun-trivia-questions-mc-250303-02-1b9d6d.jpg"
+            alt="Kenect Trivia"
+            class="card-img-top mb-3"
+            style="max-height: 150px; object-fit: contain;"
+          />
+          <button class="btn btn-primary btn-join">Join</button>
+          <p class="text-muted mt-2 mb-0">
+            Ends in:
+            <span class="countdown" data-end="2025-05-27T18:00:00"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UPCOMING TOURNAMENT GRID (9 cards) -->
+  <main class="container py-5">
+    <div class="row g-4">
+      <!-- Tournament 1 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-header">Upcoming Tournament</div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Tournament 1</h5>
+            <img
+              src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1500w,f_auto,q_auto:best/rockcms/2025-03/fun-trivia-questions-mc-250303-02-1b9d6d.jpg"
+              alt="Tournament 1"
+              class="card-img-top mb-3"
+              style="max-height: 150px; object-fit: contain;"
+            />
+            <button class="btn btn-secondary btn-join" disabled>Join</button>
+            <p class="text-muted mt-2 mb-0">
+              Starts in:
+              <span class="countdown" data-start="2025-05-27T10:00:00"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tournament 2 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-header">Upcoming Tournament</div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Tournament 2</h5>
+            <img
+              src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1500w,f_auto,q_auto:best/rockcms/2025-03/fun-trivia-questions-mc-250303-02-1b9d6d.jpg"
+              alt="Tournament 2"
+              class="card-img-top mb-3"
+              style="max-height: 150px; object-fit: contain;"
+            />
+            <button class="btn btn-secondary btn-join" disabled>Join</button>
+            <p class="text-muted mt-2 mb-0">
+              Starts in:
+              <span class="countdown" data-start="2025-05-27T10:00:00"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tournament 3 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-header">Upcoming Tournament</div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Tournament 3</h5>
+            <img
+              src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1500w,f_auto,q_auto:best/rockcms/2025-03/fun-trivia-questions-mc-250303-02-1b9d6d.jpg"
+              alt="Tournament 3"
+              class="card-img-top mb-3"
+              style="max-height: 150px; object-fit: contain;"
+            />
+            <button class="btn btn-secondary btn-join" disabled>Join</button>
+            <p class="text-muted mt-2 mb-0">
+              Starts in:
+              <span class="countdown" data-start="2025-05-27T10:00:00"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tournament 4 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-header">Upcoming Tournament</div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Tournament 4</h5>
+            <img
+              src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1500w,f_auto,q_auto:best/rockcms/2025-03/fun-trivia-questions-mc-250303-02-1b9d6d.jpg"
+              alt="Tournament 4"
+              class="card-img-top mb-3"
+              style="max-height: 150px; object-fit: contain;"
+            />
+            <button class="btn btn-secondary btn-join" disabled>Join</button>
+            <p class="text-muted mt-2 mb-0">
+              Starts in:
+              <span class="countdown" data-start="2025-05-27T10:00:00"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tournament 5 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-header">Upcoming Tournament</div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Tournament 5</h5>
+            <img
+              src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1500w,f_auto,q_auto:best/rockcms/2025-03/fun-trivia-questions-mc-250303-02-1b9d6d.jpg"
+              alt="Tournament 5"
+              class="card-img-top mb-3"
+              style="max-height: 150px; object-fit: contain;"
+            />
+            <button class="btn btn-secondary btn-join" disabled>Join</button>
+            <p class="text-muted mt-2 mb-0">
+              Starts in:
+              <span class="countdown" data-start="2025-05-27T10:00:00"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tournament 6 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-header">Upcoming Tournament</div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Tournament 6</h5>
+            <img
+              src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1500w,f_auto,q_auto:best/rockcms/2025-03/fun-trivia-questions-mc-250303-02-1b9d6d.jpg"
+              alt="Tournament 6"
+              class="card-img-top mb-3"
+              style="max-height: 150px; object-fit: contain;"
+            />
+            <button class="btn btn-secondary btn-join" disabled>Join</button>
+            <p class="text-muted mt-2 mb-0">
+              Starts in:
+              <span class="countdown" data-start="2025-05-27T10:00:00"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tournament 7 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-header">Upcoming Tournament</div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Tournament 7</h5>
+            <img
+              src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1500w,f_auto,q_auto:best/rockcms/2025-03/fun-trivia-questions-mc-250303-02-1b9d6d.jpg"
+              alt="Tournament 7"
+              class="card-img-top mb-3"
+              style="max-height: 150px; object-fit: contain;"
+            />
+            <button class="btn btn-secondary btn-join" disabled>Join</button>
+            <p class="text-muted mt-2 mb-0">
+              Starts in:
+              <span class="countdown" data-start="2025-05-27T10:00:00"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tournament 8 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-header">Upcoming Tournament</div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Tournament 8</h5>
+            <img
+              src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1500w,f_auto,q_auto:best/rockcms/2025-03/fun-trivia-questions-mc-250303-02-1b9d6d.jpg"
+              alt="Tournament 8"
+              class="card-img-top mb-3"
+              style="max-height: 150px; object-fit: contain;"
+            />
+            <button class="btn btn-secondary btn-join" disabled>Join</button>
+            <p class="text-muted mt-2 mb-0">
+              Starts in:
+              <span class="countdown" data-start="2025-05-27T10:00:00"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tournament 9 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-header">Upcoming Tournament</div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Tournament 9</h5>
+            <img
+              src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1500w,f_auto,q_auto:best/rockcms/2025-03/fun-trivia-questions-mc-250303-02-1b9d6d.jpg"
+              alt="Tournament 9"
+              class="card-img-top mb-3"
+              style="max-height: 150px; object-fit: contain;"
+            />
+            <button class="btn btn-secondary btn-join" disabled>Join</button>
+            <p class="text-muted mt-2 mb-0">
+              Starts in:
+              <span class="countdown" data-start="2025-05-27T10:00:00"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  ></script>
+
+  <!-- Countdown script -->
+  <script>
+    function updateCountdown(el) {
+      const now = new Date();
+      const start = el.dataset.start;
+      const end   = el.dataset.end;
+      let target, label;
+
+      if (end) {
+        target = new Date(end);
+        label  = 'Ends in:';
+      } else if (start) {
+        target = new Date(start);
+        label  = 'Starts in:';
+      } else {
+        el.textContent = '';
+        return;
+      }
+
+      if (isNaN(target)) {
+        el.textContent = '—';
+        return;
+      }
+      let diff = target - now;
+      if (diff <= 0) {
+        el.textContent = `${label} 0h 0m`;
+        return;
+      }
+
+      const hrs  = Math.floor(diff / (1000 * 60 * 60));
+      const mins = Math.floor((diff / (1000 * 60)) % 60);
+      el.textContent = `${label} ${hrs}h ${mins}m`;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.countdown').forEach(updateCountdown);
+      setInterval(() =>
+        document.querySelectorAll('.countdown').forEach(updateCountdown),
+      60000);
+    });
+  </script>
+</body>
+</html>
